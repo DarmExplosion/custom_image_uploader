@@ -1,68 +1,54 @@
-# Simple php image uploader 
+# PHP Image Uploader 
 
-This is a simple and lightweight image uploder, that you can use to build a bigger project with. 
-The uploader is a simple php file that saves an image from a POST request to a folder and sends you the url to access the image.
+This is a simple and lightweight image uploader written in PHP.
 
-All images / Files are going to embed in applications like discord/ whatsapp.
+The PHP script saves an image from a `POST`-Request to a folder and sends you the URL to access the image when being called.
 
-# Setup:
+All images/files can embed in applications such as Discord/WhatsApp.
 
-1. Copy the upload.php file and upload it to your web server. (Example: /var/www/website/upload.php)
+# Setup
 
-3. Customize the script:
+1. Copy the upload.php file and upload it to your web server (e.g. `/var/www/website/upload.php`).
 
+2. Customize the script:
 
-    -> Line 3: Exchange the SECRET KEY with your upload key 
+    - Line 3: Exchange `YOUR_UPLOAD_SECRET` with your upload secret (for example random generated string e.g. of 20 characters).
+  
+    - Line 4: Exchange `UPLOAD_DOMAIN` with the domain of the upload script (e.g. `http://yourdomain.com/upload.php`)
+  
+    - Line 5: Optional: Add a redirect URL, that you get redirected to, in case someone calls the website without an image uploader: Exchange `REDIRECT_URL` with this URL.
   
   
-    -> Line 4: Exchange the uploadhost with the domain that has the upload script: (Ex: https : //domain .wtf/images/upload.php)
-  
-  
-    -> Line 5: Optioal: Add a redirect url, that you get redirected to, in care someone calls the website without a image uploader.
-  
-  
-3. Run the .sxcu file from the repo, and customize the custom uploader settings to fir your configuration of the upload.php
+3. Download the [`ShareX.sxcu`](https://github.com/KonVision/custom_image_uploader/blob/main/sharex.sxcu)-File (if you want to use [ShareX](https://getsharex.com)) or the [`ShareNix.json`](https://github.com/KonVision/custom_image_uploader/blob/main/sharenix.json)-File (if you want to use [ShareNix](https://github.com/Francesco149/sharenix)) from the repository, and customize the custom uploader settings to fit your configuration of the [`upload.php`](https://github.com/KonVision/custom_image_uploader/blob/main/upload.php)-Script.
 
+    Do the following changes whether what tool you are using:
+    - ShareX
+        - `k` = Upload secret
+        - `Request URL` = API URL (e.g. `http://yourdomain.com/upload.php`)
+        - Optional: `d` = file name **(Optional!)**
+    - ShareNix
+        - `key` = Upload secret
+        - `RequestURL` = API URL (e.g. `http://yourdomain.com/upload.php`)
+        - `FileFormName` = file name **(Optional!)**
+    Run the file after saving your changes.
 
-     -> k = secret key
+> If you want to learn more about the configuration files and how to generate them, [this might interest you](https://github.com/KonVision/configuration-file-generators).
   
-  
-     -> File from name: d
-  
-  
-     -> Destination Type: Image uploader
-  
-  
-     -> Method: POST
-  
-  
-      -> Request URL: https:// yourdomain .com/upload.php
-  
-  
-4. Upload images.
+4. Upload images by using ShareX or ShareNix!
 
 
-
-# Troubleshooting:
+# Troubleshooting
 
 Some errors you may encounter:
-
-
-  
-Error 404:
-
-
-     Make sure you actually call the php script, and not some other website / make sure apache / nginx is running
-  
-  
-  
-Sorry, your file could not be uploaded:
-
-
-     Make sure you have php 7.4 installed & that the service is running (systemctl status php7.4-fpm)
-  
-  
-     Make sure your php script hast permissions to create files (sudo chown -R www-data:www-data /var/www)
-  
-  
  
+### `Error 404`
+
+> Make sure you call the PHP script, and not some other website.
+
+> Make sure your Apache/Nginx server is running.
+  
+### `Sorry, your file could not be uploaded.`
+
+> Make sure you have PHP 7.4 installed & that the service is running (`systemctl status php7.4-fpm`).
+  
+> Make sure your PHP script has permissions to create files (`sudo chown -R www-data:www-data /var/www`)`

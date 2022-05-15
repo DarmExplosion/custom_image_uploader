@@ -1,12 +1,12 @@
-﻿{
+{
   "Version": "13.7.0",
-  "Name": "php",
+  "Name": "imageuploader",
   "DestinationType": "ImageUploader",
   "RequestMethod": "POST",
-  "RequestURL": "https://yourdomain.com/upload.php",
+  "RequestURL": "YOUR_UPLOAD_DOMAIN",
   "Body": "MultipartFormData",
   "Arguments": {
-    "k": "YOUR SECURITY KEY"
+    "k": "YOUR_UPLOAD_SECRET"
   },
   "FileFormName": "d"
 }

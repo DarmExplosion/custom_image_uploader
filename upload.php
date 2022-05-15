@@ -1,8 +1,8 @@
 <?php
 header("Content-Type: text/text");
-$key = "SECURITY KEY GOES HERE";
-$uploadhost = "https://yourdomain.com/";
-$redirect = "https://redirect_on_upload.com";
+$key = "YOUR_UPLOAD_SECRET";
+$uploadhost = "UPLOAD_DOMAIN";
+$redirect = "REDIRECT_URL";
 if ($_SERVER["REQUEST_URI"] == "/robot.txt") { die("User-agent: *\nDisallow: /"); }
 if (isset($_POST['k'])) {
     if ($_POST['k'] == $key) {
